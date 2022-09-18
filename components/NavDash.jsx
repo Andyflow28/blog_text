@@ -1,8 +1,11 @@
 import Image from "next/image";
 import { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 const NavDash = () => {
-    const close =
+  const router = useRouter()
+  const close =
     "hidden sm:flex sm:w-[20rem] sm:items-center sm:my-5 sm:flex-row sm:mr-5";
   const open =
     "flex w-full flex-col items-center mt-8 sm:my-5 sm:flex-row sm:w-[20rem] sm:mr-5 transition-all duration-1000";
@@ -10,6 +13,12 @@ const NavDash = () => {
   const list = "/img/lista.png";
   const [menu, setMenu] = useState(list);
   const [bar, setBar] = useState(close);
+
+  const logOut = async () => {
+    await axios.get("/api/v1/logout")
+    .then(() => router.push("/"))
+    .catch((error) => console.log(error))
+  }
 
   return (
     <div
@@ -49,22 +58,21 @@ const NavDash = () => {
         </div>
       </div>
       <div className={bar}>
-        <a
-          href="/Login"
-          className="text-xl bg-[#2e6edf] font-medium text-white w-[90%] text-center rounded-lg my-2 py-5 sm:w-56 sm:hover:bg-[#2C62C1]"
+        <p
+          onClick={() => router.reload()}
+          className="text-xl bg-[#2e6edf] font-medium text-white w-[90%] text-center rounded-lg my-2 py-5 sm:w-56 sm:hover:bg-[#2C62C1] cursor-pointer"
         >
-          DashBoard
-        </a>
-        <a
-          href="/Register"
-          className="border-[#2e6edf] border rounded-lg text-xl font-medium w-[90%] text-center my-2 py-5 text-[#2e6edf] sm:w-56 sm:text-[#444444] sm:font-normal sm:mr-10 sm:rounded-none sm:border-0 sm:hover:border-b-4 transition-all duration-100 ease-linear sm:hover:py-[12px] sm:ml-5"
+          Refresh
+        </p>
+        <p
+          onClick={() => logOut()}
+          className="border-[#2e6edf] border rounded-lg text-xl font-medium w-[90%] text-center my-2 py-5 text-[#2e6edf] sm:w-56 sm:text-[#444444] sm:font-normal sm:mr-10 sm:rounded-none sm:border-0 sm:hover:border-b-4 transition-all duration-100 ease-linear sm:hover:py-[12px] sm:ml-5 cursor-pointer"
         >
           Logout
-        </a>
+        </p>
       </div>
     </div>
   );
 };
 
-
-export default NavDash
+export default NavDash;
