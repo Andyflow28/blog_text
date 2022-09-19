@@ -29,7 +29,7 @@ export default function Home() {
     return (
       <div className="font-sans">
         <Head>
-        <title>Notes Blos</title>
+        <title>Notes Blog</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="Home" />
         <link rel="shortcut icon" href={favicon.src} type="image/x-icon" />
