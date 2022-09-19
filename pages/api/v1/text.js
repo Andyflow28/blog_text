@@ -15,7 +15,7 @@ export default async function texthandler(req, res) {
 const consultText = async (req, res) => {
   try {
     const { TokenName } = req.cookies;
-    const user = Jwt.verify(TokenName, process.env.DB_CLIENT_ID);
+    const user = Jwt.verify(TokenName, process.env.DB_CLIENT_ID_TEXT);
     const [csl] = await pool.query(
       `SELECT id FROM user WHERE email = "${user.email}"`
     );
@@ -35,7 +35,7 @@ const insertText = async (req, res) => {
   try {
     const { title, note } = req.body;
     const { TokenName } = req.cookies;
-    const user = Jwt.verify(TokenName, process.env.DB_CLIENT_ID);
+    const user = Jwt.verify(TokenName, process.env.DB_CLIENT_ID_TEXT);
     if (typeof title === typeof "" && typeof note === typeof "") {
       const [result] = await pool.query(
         `SELECT id FROM user WHERE email = "${user.email}"`
@@ -48,5 +48,6 @@ const insertText = async (req, res) => {
     }
   } catch (error) {
     console.log(error);
+    return res.status(500).json({ message: error.message });
   }
 };

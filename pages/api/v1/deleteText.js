@@ -27,6 +27,7 @@ const insertText = async (req, res) => {
       });
   } catch (error) {
     console.log(error);
+    return res.status(500).json({ message: error.message });
   }
 };
 
@@ -37,5 +38,6 @@ const deleteText = async (req, res) => {
     return res.status(200).json({ message: "deleted succefully" });
   } catch (error) {
     console.log(error);
+    return res.status(500).json({ message: error.message });
   }
 };

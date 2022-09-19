@@ -18,7 +18,7 @@ const consultUser = async (req, res) => {
   try {
     const { TokenName } = req.cookies;
 
-    const user = verify(TokenName, process.env.DB_CLIENT_ID);
+    const user = verify(TokenName, process.env.DB_CLIENT_ID_TEXT);
     return res.json({ status: true });
   } catch (error) {
     return res.json({ status: false });
@@ -54,7 +54,7 @@ const loginUser = async (req, res) => {
             email: email,
             password: password,
           },
-          process.env.DB_CLIENT_ID
+          process.env.DB_CLIENT_ID_TEXT
         );
 
         const serialized = serialize("TokenName", token, {
