@@ -6,7 +6,6 @@ import { fetchAlltext } from "../slice/text";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { useRouter } from "next/router";
-import Router from "next/router";
 import { saveAs } from "file-saver";
 import Alert from "../components/Alert";
 
@@ -73,7 +72,7 @@ const Text = () => {
   //! End edit, delete, download text utils
   if (text !== null) {
     return (
-      <div className="bg-white h-screen">
+      <div className="bg-white h-screen font-sans">
         <NavDash
           destiny={"Dashboard"}
           func={router.push}
@@ -153,7 +152,7 @@ const Text = () => {
     );
   } else {
     return (
-      <div className="bg-white h-screen flex justify-center items-center">
+      <div className="bg-white h-screen flex justify-center items-center font-sans">
         <p className="font-bold text-6xl">Loading...</p>
       </div>
     );

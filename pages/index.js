@@ -4,6 +4,7 @@ import Image from "next/image";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function Home() {
   const router = useRouter();
@@ -25,7 +26,7 @@ export default function Home() {
 
   if (session === false) {
     return (
-      <div>
+      <div className="font-sans">
         <Head>
           <title>NoteBlogs</title>
         </Head>
@@ -56,17 +57,16 @@ export default function Home() {
             </div>
           </div>
           <div className="my-20 flex flex-col items-center sm:items-start sm:ml-10">
-            <a
-              href="/Login"
-              className="text-xl bg-[#2e6edf] font-medium text-white w-[90%] text-center rounded-lg my-2 py-5 sm:w-56 sm:hover:bg-[#2C62C1] sm:rounded-none sm:mb-5 "
-            >
-              Login
-            </a>
+            <Link href="/Login">
+              <a className="text-xl bg-[#2e6edf] font-medium text-white w-[90%] text-center rounded-lg my-2 py-5 sm:w-56 sm:hover:bg-[#2C62C1] sm:rounded-none sm:mb-5 ">
+                Login
+              </a>
+            </Link>
             <div className="text-center sm:flex">
               <p className="text-[#444444]">Do you not have a account?</p>
-              <a href="/Register" className="text-[#2e6edf] sm:ml-2">
-                Resgister Now
-              </a>
+              <Link href="/Register">
+                <a className="text-[#2e6edf] sm:ml-2">Resgister Now</a>
+              </Link>
             </div>
           </div>
         </div>
@@ -76,7 +76,7 @@ export default function Home() {
     router.push("/DashBoard");
   } else {
     return (
-      <div className="bg-white h-screen flex justify-center items-center">
+      <div className="bg-white h-screen flex justify-center items-center font-sans">
         <p className="font-bold text-6xl">Loading...</p>
       </div>
     );

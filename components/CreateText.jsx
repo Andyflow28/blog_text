@@ -8,8 +8,8 @@ const CreateText = (props) => {
 
   const [text, setText] = useState({
     title: "",
-    note: ""
-  })
+    note: "",
+  });
 
   const handleChange = (e) => {
     setText({
@@ -20,23 +20,33 @@ const CreateText = (props) => {
 
   const handleSumit = async () => {
     await axios
-        .post("/api/v1/text", text)
-        .then((response) => {
-          router.reload()
-        })
-        .catch((error) => {
-          console.log(error); 
-        });
-  }
+      .post("/api/v1/text", text)
+      .then((response) => {
+        router.reload();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div className={props.alert}>
-      <div className="sm:w-[50vw] sm:h-[50vh] bg-white sm:rounded-xl mx-auto mt-[25vh] h-[50vh] w-full">
-        <div className="pt-5 ml-5 fixed cursor-pointer" onClick={() => props.setFunction(props.value)}>
-          <Image alt="icon x" width={"32px"} height="32px" src={"/img/close.png"}/>
+      <div className="sm:w-[50vw] sm:h-[50vh] bg-white sm:rounded-xl mx-auto mt-[25vh] h-[50vh] w-full font-sans">
+        <div
+          className="pt-5 ml-5 fixed cursor-pointer"
+          onClick={() => props.setFunction(props.value)}
+        >
+          <Image
+            alt="icon x"
+            width={"32px"}
+            height="32px"
+            src={"/img/close.png"}
+          />
         </div>
         <div className="flex flex-col items-center justify-around h-full">
-          <p className="text-5xl font-bold text-[#1f1f1f] text-center">Create a New Text</p>
+          <p className="text-5xl font-bold text-[#1f1f1f] text-center">
+            Create a New Text
+          </p>
           <div>
             <p className="text-gray-700 text-xl mb-3">title</p>
             <input

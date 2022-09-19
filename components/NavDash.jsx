@@ -4,7 +4,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 
 const NavDash = (props) => {
-  const router = useRouter()
+  const router = useRouter();
   const close =
     "hidden sm:flex sm:w-[20rem] sm:items-center sm:my-5 sm:flex-row sm:mr-5";
   const open =
@@ -15,15 +15,16 @@ const NavDash = (props) => {
   const [bar, setBar] = useState(close);
 
   const logOut = async () => {
-    await axios.get("/api/v1/logout")
-    .then(() => router.push("/"))
-    .catch((error) => console.log(error))
-  }
+    await axios
+      .get("/api/v1/logout")
+      .then(() => router.push("/"))
+      .catch((error) => console.log(error));
+  };
 
   return (
     <div
       className={
-        "bg-white sm:flex sm:justify-between pb-5 shadow shadow-slate-300 sm:pb-0 sm:shadow-none"
+        "bg-white sm:flex sm:justify-between pb-5 shadow shadow-slate-300 sm:pb-0 sm:shadow-none font-sans"
       }
     >
       <div className="flex justify-between items-center">

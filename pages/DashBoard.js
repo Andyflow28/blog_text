@@ -21,8 +21,8 @@ const DashBoard = () => {
 
   const Route = (e) => {
     dispatch(fetchAlltext(e));
-    router.push("/Text")
-  }
+    router.push("/Text");
+  };
 
   //* End Redux utils
 
@@ -51,16 +51,16 @@ const DashBoard = () => {
   };
 
   useEffect(() => {
-    consultNotes()
-  }, [])
+    consultNotes();
+  }, []);
 
   //todo end Titles
 
   if (session === true) {
     return (
-      <div className="flex">
+      <div className="flex font-sans">
         <div className="bg-white h-screen">
-          <NavDash destiny={"Refresh"} func={router.reload}/>
+          <NavDash destiny={"Refresh"} func={router.reload} />
           <div className="flex items-center">
             <h2 className="text-3xl font-bold text-[#1f1f1f] my-5 mx-5">
               Memo Pads
@@ -83,7 +83,8 @@ const DashBoard = () => {
                 notes.map((item) => (
                   <div
                     className="w-[194px] h-[162px] bg-white sm:m-5 my-2 mx-1 cursor-pointer"
-                    key={item.notes_id} onClick={() => Route(item.notes_id)}
+                    key={item.notes_id}
+                    onClick={() => Route(item.notes_id)}
                   >
                     <div className="p-5">
                       <p className="text-4xl font-bold mb-1">{item.title}</p>
@@ -94,7 +95,9 @@ const DashBoard = () => {
                   </div>
                 ))
               ) : (
-                <div className="text-gray-500 font-bold text-5xl text-center w-full my-[25%]">You dont have Texts</div>
+                <div className="text-gray-500 font-bold text-5xl text-center w-full my-[25%]">
+                  You dont have Texts
+                </div>
               )}
             </div>
           </div>
@@ -106,7 +109,7 @@ const DashBoard = () => {
     router.push("/");
   } else {
     return (
-      <div className="bg-white h-screen flex justify-center items-center">
+      <div className="bg-white h-screen flex justify-center items-center font-sans">
         <p className="font-bold text-6xl">Loading...</p>
       </div>
     );

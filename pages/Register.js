@@ -100,7 +100,7 @@ const Register = () => {
   //? End Register utils
   if (session === false) {
     return (
-      <div className="bg-[#2e6edf] h-[100vh] flex justify-center items-center">
+      <div className="bg-[#2e6edf] h-[100vh] flex justify-center items-center font-sans">
         <form
           className="flex bg-white flex-col items-center h-[35vh] w-5/6 justify-around sm:h-[45vh] sm:w-2/6"
           onSubmit={handleSubmit}
@@ -144,7 +144,7 @@ const Register = () => {
     router.push("/DashBoard");
   } else {
     return (
-      <div className="bg-white h-screen flex justify-center items-center">
+      <div className="bg-white h-screen flex justify-center items-center font-sans">
         <p className="font-bold text-6xl">Loading...</p>
       </div>
     );
