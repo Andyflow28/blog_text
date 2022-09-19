@@ -135,6 +135,8 @@ const Register = () => {
           error={error}
           redirect="/Login"
           holder="Login"
+          alertHolder="Try Again"
+          setFunction={router.reload}
         />
       </div>
     );

@@ -136,6 +136,8 @@ const Login = () => {
           error={error}
           holder="Dashboard"
           redirect="/DashBoard"
+          alertHolder="Try Again"
+          setFunction={router.reload}
         />
       </div>
     );

@@ -4,12 +4,27 @@ import axios from "axios";
 import CreateText from "../components/CreateText";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { fetchAlltext } from "../slice/text";
+import { useDispatch, useSelector } from "react-redux";
 
 const DashBoard = () => {
   const router = useRouter();
   const show = "bg-black/75 h-screen w-screen fixed";
   const hide = "hidden";
   const [create, setCreate] = useState(hide);
+
+  //* Redux utils
+
+  const { listText: text } = useSelector((state) => state.text);
+
+  const dispatch = useDispatch();
+
+  const Route = (e) => {
+    dispatch(fetchAlltext(e));
+    router.push("/Text")
+  }
+
+  //* End Redux utils
 
   //! Session utils
 
@@ -45,7 +60,7 @@ const DashBoard = () => {
     return (
       <div className="flex">
         <div className="bg-white h-screen">
-          <NavDash />
+          <NavDash destiny={"Refresh"} func={router.reload}/>
           <div className="flex items-center">
             <h2 className="text-3xl font-bold text-[#1f1f1f] my-5 mx-5">
               Memo Pads
@@ -68,7 +83,7 @@ const DashBoard = () => {
                 notes.map((item) => (
                   <div
                     className="w-[194px] h-[162px] bg-white sm:m-5 my-2 mx-1 cursor-pointer"
-                    key={item.notes_id}
+                    key={item.notes_id} onClick={() => Route(item.notes_id)}
                   >
                     <div className="p-5">
                       <p className="text-4xl font-bold mb-1">{item.title}</p>

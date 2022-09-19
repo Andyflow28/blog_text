@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 
-const NavDash = () => {
+const NavDash = (props) => {
   const router = useRouter()
   const close =
     "hidden sm:flex sm:w-[20rem] sm:items-center sm:my-5 sm:flex-row sm:mr-5";
@@ -59,10 +59,10 @@ const NavDash = () => {
       </div>
       <div className={bar}>
         <p
-          onClick={() => router.reload()}
+          onClick={() => props.func(props.value)}
           className="text-xl bg-[#2e6edf] font-medium text-white w-[90%] text-center rounded-lg my-2 py-5 sm:w-56 sm:hover:bg-[#2C62C1] cursor-pointer"
         >
-          Refresh
+          {props.destiny}
         </p>
         <p
           onClick={() => logOut()}

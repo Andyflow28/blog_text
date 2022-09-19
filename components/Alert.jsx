@@ -43,10 +43,10 @@ const Alert = (props) => {
               {props.message}
             </p>
             <p
-              onClick={() => router.reload()}
-              className="text-xl bg-red-600 font-medium text-white w-[90%] text-center rounded-lg my-2 py-5 sm:w-56 sm:hover:bg-red-700 sm:rounded-none sm:mb-5 "
+              onClick={() => props.setFunction(props.value)}
+              className="text-xl bg-red-600 font-medium text-white w-[90%] text-center rounded-lg my-2 py-5 sm:w-56 sm:hover:bg-red-700 sm:rounded-none sm:mb-5 cursor-pointer"
             >
-              Try again
+              {props.alertHolder}
             </p>
           </div>
         </div>
