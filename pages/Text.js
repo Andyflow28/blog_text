@@ -8,6 +8,8 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { saveAs } from "file-saver";
 import Alert from "../components/Alert";
+import favicon from "../public/favicon.ico";
+import Head from "next/head";
 
 const Text = () => {
   const router = useRouter();
@@ -73,6 +75,15 @@ const Text = () => {
   if (text !== null) {
     return (
       <div className="bg-white h-screen font-sans">
+        <Head>
+          <title>Notes Blog | Edit text</title>
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+          <meta name="description" content="Home" />
+          <link rel="shortcut icon" href={favicon.src} type="image/x-icon" />
+        </Head>
         <NavDash
           destiny={"Dashboard"}
           func={router.push}

@@ -5,6 +5,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import favicon from "../public/favicon.ico";
 
 export default function Home() {
   const router = useRouter();
@@ -28,8 +29,11 @@ export default function Home() {
     return (
       <div className="font-sans">
         <Head>
-          <title>NoteBlogs</title>
-        </Head>
+        <title>Notes Blos</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content="Home" />
+        <link rel="shortcut icon" href={favicon.src} type="image/x-icon" />
+      </Head>
 
         <div>
           <Nav />

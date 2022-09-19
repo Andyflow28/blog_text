@@ -6,6 +6,8 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { fetchAlltext } from "../slice/text";
 import { useDispatch, useSelector } from "react-redux";
+import favicon from "../public/favicon.ico";
+import Head from "next/head";
 
 const DashBoard = () => {
   const router = useRouter();
@@ -59,6 +61,15 @@ const DashBoard = () => {
   if (session === true) {
     return (
       <div className="flex font-sans">
+        <Head>
+          <title>Notes Blog | Dashboard</title>
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+          <meta name="description" content="Home" />
+          <link rel="shortcut icon" href={favicon.src} type="image/x-icon" />
+        </Head>
         <div className="bg-white h-screen">
           <NavDash destiny={"Refresh"} func={router.reload} />
           <div className="flex items-center">

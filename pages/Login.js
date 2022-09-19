@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Alert from "../components/Alert";
 import axios from "axios";
 import { useRouter } from "next/router";
+import favicon from "../public/favicon.ico";
+import Head from "next/head";
 
 const Login = () => {
   const router = useRouter();
@@ -89,6 +91,12 @@ const Login = () => {
   if (session === false) {
     return (
       <div className="bg-[#2e6edf] h-[100vh] flex justify-center items-center font-sans">
+        <Head>
+        <title>Login</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content="Home" />
+        <link rel="shortcut icon" href={favicon.src} type="image/x-icon" />
+      </Head>
         <form
           className="flex bg-white flex-col items-center h-[40vh] w-5/6 justify-around sm:h-[50vh] sm:w-2/6"
           onSubmit={handleSubmit}
